@@ -1,6 +1,6 @@
 # instagram-graph-api-php-sdk
 
-This repository contains the open source PHP SDK that allows you to access the Instagram Graph API from your PHP app.
+This repository contains the open source PHP SDK that allows you to access the Instagram Graph API from your PHP app. Forked from @jstolpe and changed to use `graph.instagram.com` instead of `graph.facebook.com`. Using for pulling post and creating post.
 
 ## Installation
 
@@ -9,7 +9,7 @@ This repository contains the open source PHP SDK that allows you to access the I
 Run this command:
 
 ```
-composer require jstolpe/instagram-graph-api-php-sdk
+composer require Ivan-DaGreat/instagram-graph-api-php-sdk
 ```
 
 Require the the autoloader.
@@ -23,7 +23,7 @@ require_once __DIR__ . '/vendor/autoload.php'; // change path as needed
 Get the repository
 
 ```
-git clone git@github.com:jstolpe/instagram-graph-api-php-sdk.git
+git clone git@github.com:Ivan-DaGreat/instagram-graph-api-php-sdk.git
 ```
 
 Require the custom autoloader.
@@ -36,19 +36,19 @@ require_once '/instagram-graph-api-php-sdk/src/instagram/autoload.php'; // chang
 
 Simple GET example of a user's profile and media posts.
 ```php
-use Instagram\User\BusinessDiscovery;
+use Instagram\User\Media;
 
-$config = array( // instantiation config params
+$config = [ // instantiation config params
     'user_id' => '<IG_USER_ID>',
     'username' => '<USERNAME>', // string of the Instagram account username to get data on
     'access_token' => '<ACCESS_TOKEN>',
-);
+];
 
 // instantiate business discovery for a user
-$businessDiscovery = new BusinessDiscovery( $config );
+$media = new Media( $config );
 
 // initial business discovery
-$userBusinessDiscovery = $businessDiscovery->getSelf();
+$userMedia = $media->getSelf();
 ```
 
 Simple POST example of posting an image to an Instagram account.
